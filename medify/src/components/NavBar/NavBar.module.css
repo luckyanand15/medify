@@ -2,3 +2,24 @@
     color: #102851;
     text-decoration: none;
 }
+
+
+@media(max-width:900px){
+    .navBarLinks{
+        background: #102851;
+        position: fixed;
+        top:0;
+        right: 0;
+        z-index: 9999;
+        width: 90vw;
+        height: 100vh;
+        transform: translateX(100%);
+        transition: transform 400ms ease;
+    }
+    .navBarLinks a{
+        color: #ffffff;
+    }
+    .navBarLinks.enabled{
+        transform: translateX(0);
+    }
+}
