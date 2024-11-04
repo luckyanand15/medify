@@ -27,6 +27,22 @@ export const theme = createTheme({
       main: "#2AA7FF",
     },
   },
+  typography:{
+    fontFamily: "Poppins, sans-serif"
+  },
+  components:{
+    MuiButton:{
+      styleOverrides:{
+        root:{
+          borderRadius:"8px",
+          textTransform:"none"
+        },
+        contained:{
+          color:"#ffffff"
+        }
+      }
+    }
+  }
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
