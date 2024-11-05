@@ -14,16 +14,16 @@ const HeroSection = () => {
           px={mobileSize ? 2:10}
         >
           <Box className={Styles.heroText}>
-            <Typography variant="h3">Skip the travel! Find Online</Typography>
+            <Typography variant="h3" sx={{mt:{xs:2}}}>Skip the travel! Find Online</Typography>
             <Typography variant="h1" my={1}>
               Medical <span style={{ color: "#2AA7FF" }}>Centers</span>
             </Typography>
-            <Typography color="#5C6169" fontSize={{ md: 20 }} mb={3}>
+            <Typography color="#5C6169" fontSize={{ md: 20, xs: 15 }} mb={3} sx={{mt:mobileSize && 2}}>
               Connect instantly with a 24x7 specialist or choose to video visit
               a particular doctor.
             </Typography>
             <Link to={"./search"}>
-              <Button variant="contained" size="large">
+              <Button variant="contained" size="large" sx={{mb:mobileSize && 5}}>
                 Find Centers
               </Button>
             </Link>
