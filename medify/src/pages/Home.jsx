@@ -1,15 +1,37 @@
-import React from 'react'
-import { Box } from '@mui/material';
+import React from "react";
+import { Box, Container, Stack, useMediaQuery } from "@mui/material";
 import NavBar from "../components/NavBar/NavBar";
-import HeroSection from '../components/HeroSection/HeroSection';
+import HeroSection from "../components/HeroSection/HeroSection";
+import SearchHosptials from "../components/SearchHospitals/SearchHosptials";
 
 const Home = () => {
+  const mobileSize = useMediaQuery("(max-width:900px)");
   return (
-    <Box sx={{background:"linear-gradient(#E7F0FF , rgba(232, 241, 255, 0.47))"}}>
-      <NavBar/>
-      <HeroSection/>
+    <Box
+      sx={{
+        background:
+          "linear-gradient(#E7F0FF , rgba(232, 241, 255, 0.47) 90%, #fff 10%)",
+      }}
+    >
+      <NavBar />
+      <HeroSection />
+      <Stack px={mobileSize ? 2 : 10}>
+        <Container maxWidth="xl">
+          <Stack
+            bgcolor="#fff"
+            p={{ xs: 2.5, md: 8 }}
+            position="relative"
+            zIndex={99}
+            mt={{ xs: -2, md: -6 }}
+            boxShadow="0 0 12px rgba(0,0,0,0.1)"
+            borderRadius="15px"
+          >
+            <SearchHosptials />
+          </Stack>
+        </Container>
+      </Stack>
     </Box>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
