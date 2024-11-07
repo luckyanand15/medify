@@ -3,6 +3,7 @@ import { Box, Container, Stack, useMediaQuery } from "@mui/material";
 import NavBar from "../components/NavBar/NavBar";
 import HeroSection from "../components/HeroSection/HeroSection";
 import SearchHosptials from "../components/SearchHospitals/SearchHosptials";
+import ServicesCards from "../components/ServicesCards/ServicesCards";
 
 const Home = () => {
   const mobileSize = useMediaQuery("(max-width:900px)");
@@ -12,6 +13,7 @@ const Home = () => {
         background:
           "linear-gradient(#E7F0FF , rgba(232, 241, 255, 0.47) 90%, #fff 10%)",
       }}
+      mb={4}
     >
       <NavBar />
       <HeroSection />
@@ -27,6 +29,7 @@ const Home = () => {
             borderRadius="15px"
           >
             <SearchHosptials />
+            <ServicesCards/>
           </Stack>
         </Container>
       </Stack>

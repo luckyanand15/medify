@@ -1,7 +1,6 @@
 import { Box, Button, InputAdornment, MenuItem, Select } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import Styles from "./SearchHospitals.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -62,6 +61,7 @@ const SearchHosptials = () => {
         justifyContent: "space-between",
         flexDirection: { xs: "column", md: "row" },
       }}
+      mb={10}
     >
       <Select
         displayEmpty
