@@ -7,6 +7,7 @@ import ServicesCards from "../components/ServicesCards/ServicesCards";
 import OfferSection from "../components/OfferSection/OfferSection";
 import Specialisation from "../components/Specialisation/Specialisation";
 import Specialist from "../components/Specialist/Specialist";
+import PatientCaring from "../components/PatientCaring/PatientCaring";
 
 const Home = () => {
   const mobileSize = useMediaQuery("(max-width:900px)");
@@ -46,6 +47,7 @@ const Home = () => {
         </Stack>
         <Specialisation/>
         <Specialist/>
+        <PatientCaring/>
       </Box>
     </Box>
   );
