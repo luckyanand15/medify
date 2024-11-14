@@ -26,6 +26,9 @@ export const theme = createTheme({
     primary: {
       main: "#2AA7FF",
     },
+    secondary:{
+      main: "#1B3C74"
+    }
   },
   typography:{
     fontFamily: "Poppins, sans-serif"
