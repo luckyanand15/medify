@@ -8,6 +8,9 @@ import OfferSection from "../components/OfferSection/OfferSection";
 import Specialisation from "../components/Specialisation/Specialisation";
 import Specialist from "../components/Specialist/Specialist";
 import PatientCaring from "../components/PatientCaring/PatientCaring";
+import BlogsAndNews from "../components/BlogsAndNews/BlogsAndNews";
+import OurFamilies from "../components/OurFamilies/OurFamilies";
+import FAQs from "../components/FAQs/FAQs";
 
 const Home = () => {
   const mobileSize = useMediaQuery("(max-width:900px)");
@@ -45,9 +48,14 @@ const Home = () => {
             <OfferSection />
           </Container>
         </Stack>
-        <Specialisation/>
-        <Specialist/>
-        <PatientCaring/>
+        <Specialisation />
+        <Specialist />
+        <PatientCaring />
+        <BlogsAndNews />
+        <OurFamilies />
+        <Stack px={mobileSize ? 2 : 10}>
+          <FAQs />
+        </Stack>
       </Box>
     </Box>
   );
