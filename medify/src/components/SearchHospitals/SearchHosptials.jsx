@@ -21,6 +21,9 @@ const SearchHosptials = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(formData.state && formData.city){
+      navigate(`/search?state=${formData.state}&city=${formData.city}`);
+    }
   };
 
   useEffect(() => {
@@ -61,7 +64,6 @@ const SearchHosptials = () => {
         justifyContent: "space-between",
         flexDirection: { xs: "column", md: "row" },
       }}
-      mb={10}
     >
       <Select
         displayEmpty

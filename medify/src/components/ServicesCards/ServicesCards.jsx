@@ -24,6 +24,7 @@ const ServicesCards = () => {
         fontWeight={500}
         textAlign="center"
         mb={2}
+        mt={10}
       >
         You may be looking for
       </Typography>
@@ -42,7 +43,7 @@ const ServicesCards = () => {
                 borderRadius={2}
                 alignItems="center"
                 spacing={2}
-                mb={3}
+                mb={2}
               >
                 <img
                   src={service.img}
