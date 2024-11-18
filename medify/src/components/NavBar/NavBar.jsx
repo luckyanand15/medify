@@ -22,7 +22,7 @@ const NavBar = () => {
           direction={"row"}
           justifyContent={"space-between"}
           alignItems={"center"}
-          py={3}
+          py={2}
           px={mobileSize ? 2:10}
         >
           <Link to="/">

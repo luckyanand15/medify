@@ -28,6 +28,9 @@ const Search = () => {
     afternoon: ["12:00 PM", "12:30 PM", "01:30 PM", "02:00 PM", "02:30 PM"],
     evening: ["06:00 PM", "06:30 PM", "07:00 PM", "07:30 PM"],
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [bookingDetails, setBookingDetails] = useState({});
+  const [showBookingSuccess, setShowBookingSuccess] = useState(false);
 
   useEffect(() => {
     const getHospitals = async () => {
@@ -40,6 +43,7 @@ const Search = () => {
         setIsLoading(false);
       } catch (err) {
         console.log(err);
+        setIsLoading(false);
       }
     };
     if (state && city) {
@@ -52,7 +56,10 @@ const Search = () => {
     setCity(searchParams.get("city"));
   }, [searchParams]);
 
-  const handleBooking = () => {};
+  const handleBooking = (details) => {
+    setBookingDetails(details);
+    setIsModalOpen(true);
+  };
 
   return (
     <>
@@ -69,6 +76,7 @@ const Search = () => {
             background: "linear-gradient(90deg, #2AA7FF, #0C8CE5)",
             borderBottomLeftRadius: "1rem",
             borderBottomRightRadius: "1rem",
+            height:"108px"
           }}
         >
           <Stack px={mobileSize ? 2 : 10}>
@@ -127,7 +135,7 @@ const Search = () => {
                       <HospitalCard
                         key={idx}
                         details={hospital}
-                        availableSlots={availableSlots}
+                        slots={availableSlots}
                         handleBooking={handleBooking}
                       />
                     );
@@ -170,8 +178,18 @@ const Search = () => {
           </Container>
         </Stack>
 
-        <BookingModal />
-        <AutoSnackbar />
+        <BookingModal 
+        open={isModalOpen}
+        setOpen={setIsModalOpen}
+        bookingDetails={bookingDetails}
+        showSuccessMessage={setShowBookingSuccess}
+        />
+
+        <AutoSnackbar 
+        open={showBookingSuccess}
+        setOpen={setShowBookingSuccess}
+        message="Booking Successful"
+        />
       </Box>
     </>
   );

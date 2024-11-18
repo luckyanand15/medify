@@ -1,11 +1,12 @@
-import { Box, Button, Divider, Stack, Typography } from "@mui/material";
+import { Box, Button, Chip, Divider, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import hospitalIcon from "../../assets/hospital.png";
 import like from "../../assets/like.png";
+import { format } from "date-fns";
+import Calendar from "../Calendar/Calendar";
 
 const HospitalCard = ({ details, slots, handleBooking, booking=false }) => {
   const [showCalender, setShowCalender] = useState(false);
-  console.log(details);
   return (
     <Box sx={{ borderRadius: 2, bgcolor: "#fff", p: { xs: 2, md: 4 } }}>
       <Stack
@@ -104,8 +105,31 @@ const HospitalCard = ({ details, slots, handleBooking, booking=false }) => {
             </Button>
             </>
           )}
+          {booking && (
+            <Stack direction="row" spacing={1} mt={{xs:2, md:0}}>
+              <Chip
+              label={details.bookingTime}
+              variant="outlined"
+              color="primary"
+              sx={{borderRadius:1, fontSize:14}}
+              />
+              <Chip
+              label={format(new Date(details.bookingDate), "dd mmmm yyyy")}
+              variant="outlined"
+              color="primary"
+              sx={{borderRadius:1, fontSize:14}}
+              />
+            </Stack>
+          )}
         </Stack>
       </Stack>
+      {showCalender && (
+        <Calendar
+        details={details}
+        slots={slots}
+        handleBooking={handleBooking}
+        />
+      )}
     </Box>
   );
 };
