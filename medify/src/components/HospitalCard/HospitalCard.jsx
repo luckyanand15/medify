@@ -114,9 +114,9 @@ const HospitalCard = ({ details, slots, handleBooking, booking=false }) => {
               sx={{borderRadius:1, fontSize:14}}
               />
               <Chip
-              label={format(new Date(details.bookingDate), "dd mmmm yyyy")}
+              label={format(new Date(details.bookingDate), "dd MMMM yyyy")}
               variant="outlined"
-              color="primary"
+              color="success"
               sx={{borderRadius:1, fontSize:14}}
               />
             </Stack>

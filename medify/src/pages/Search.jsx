@@ -23,14 +23,14 @@ const Search = () => {
   const [city, setCity] = useState(searchParams.get("city"));
   const [hospitals, setHospitals] = useState([]);
   const [isloading, setIsLoading] = useState(false);
-  const availableSlots = {
+  const slots = {
     morning: ["11:30 AM"],
     afternoon: ["12:00 PM", "12:30 PM", "01:30 PM", "02:00 PM", "02:30 PM"],
     evening: ["06:00 PM", "06:30 PM", "07:00 PM", "07:30 PM"],
   };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bookingDetails, setBookingDetails] = useState({});
-  const [showBookingSuccess, setShowBookingSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
 
   useEffect(() => {
     const getHospitals = async () => {
@@ -125,6 +125,7 @@ const Search = () => {
             <Stack alignItems="flex-start" direction={{ md: "row" }}>
               <Stack
                 mb={{ xs: 4, md: 0 }}
+                mt={{xs:5, md:0}}
                 spacing={3}
                 width={{ xs: 1, md: "calc(100% - 384px)" }}
                 mr="24px"
@@ -135,7 +136,7 @@ const Search = () => {
                       <HospitalCard
                         key={idx}
                         details={hospital}
-                        slots={availableSlots}
+                        slots={slots}
                         handleBooking={handleBooking}
                       />
                     );
@@ -173,7 +174,7 @@ const Search = () => {
                   </Typography>
                 )}
               </Stack>
-              <img src={banner} alt="banner" height="auto" width={360} />
+              <img src={banner} alt="banner" height="auto" width={330}/>
             </Stack>
           </Container>
         </Stack>
@@ -182,12 +183,12 @@ const Search = () => {
         open={isModalOpen}
         setOpen={setIsModalOpen}
         bookingDetails={bookingDetails}
-        showSuccessMessage={setShowBookingSuccess}
+        successMessage={setSuccessMessage}
         />
 
         <AutoSnackbar 
-        open={showBookingSuccess}
-        setOpen={setShowBookingSuccess}
+        open={successMessage}
+        setOpen={setSuccessMessage}
         message="Booking Successful"
         />
       </Box>

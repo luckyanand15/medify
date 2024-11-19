@@ -9,13 +9,13 @@ import "swiper/css";
 
 const Day = ({ selectedDate, setSelectedDate, totalSlots }) => {
   const date = startOfDay(new Date());
-  const dateItems = [];
+  const dateList = [];
 
   for (let i = 0; i < 7; i++) {
-    dateItems.push(add(date, { days: i }));
+    dateList.push(add(date, { days: i }));
   }
 
-  const customDateFormat = (day) => {
+  const dateFormat = (day) => {
     if (isEqual(date, day)) {
       return "Today";
     } else if (isEqual(date, add(day, { days: -1 }))) {
@@ -43,7 +43,7 @@ const Day = ({ selectedDate, setSelectedDate, totalSlots }) => {
           },
         }}
       >
-        {dateItems.map((day, idx) => (
+        {dateList.map((day, idx) => (
           <SwiperSlide key={idx} className={Styles.SwiperSlide}>
             <Stack
               textAlign="center"
@@ -54,7 +54,7 @@ const Day = ({ selectedDate, setSelectedDate, totalSlots }) => {
                 fontWeight={isEqual(day, selectedDate) ? 700 : 400}
                 fontSize={{ xs: 11, md: 16 }}
               >
-                {customDateFormat(day)}
+                {dateFormat(day)}
               </Typography>
               <Typography fontSize={{ xs: 8, md: 12 }} color="#00A500">
                 {`${totalSlots} Slots Available`}

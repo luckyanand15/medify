@@ -13,7 +13,7 @@ const BookingModal = ({
   open,
   setOpen,
   bookingDetails,
-  showSuccessMessage,
+  successMessage,
 }) => {
   const [email, setEmail] = useState("");
   const formatDate = (day) => {
@@ -31,7 +31,7 @@ const BookingModal = ({
     const prevBookings = JSON.parse(bookings);
 
     localStorage.setItem("bookings",JSON.stringify([...prevBookings,{...bookingDetails, bookingEmail:email}]));
-    showSuccessMessage(true);
+    successMessage(true);
     setEmail("");
     setOpen(false);
   };
@@ -56,7 +56,7 @@ const BookingModal = ({
         <Typography variant="h3" fontWeight={400} fontSize={{ xs: 18, md: 30 }}>
           Confirm booking
         </Typography>
-        <Stack direction="row" spacing={0.5} mb={3}>
+        <Stack direction={{md:"row",xs:"column"}} spacing={0.5} mb={3}>
           <Typography fontSize={14}>
             Please enter your email to confirm booking for
           </Typography>
@@ -73,6 +73,12 @@ const BookingModal = ({
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline, &:hover .MuiOutlinedInput-notchedOutline, & .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                {
+                  borderColor: "#F0F0F0",
+                },
+            }}
           />
           <Stack direction="row" spacing={1} mt={2}>
             <Button
